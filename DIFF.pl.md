@@ -1,7 +1,7 @@
 # Zmiany względem AutomateJoy v1.0.67
 
-
 [English](DIFF.md)
+
 ## Punkt odniesienia
 
 - [Publiczne repozytorium upstream](https://github.com/newcl/AutomateJoy-Release/tree/v1.0.67) zachowuje tag `v1.0.67` i commit `a39318194f36ebbd2edac777b386c7c196df5e29`.
@@ -28,3 +28,7 @@
 - `DIFF.md` dokumentuje porównanie instalatora z nowym launcherem.
 
 Zmiany w plikach repozytorium można przejrzeć przez `git diff v1.0.67..main` lub w [porównaniu GitHub](https://github.com/grzechotnik777/AutomateJoy-Release/compare/v1.0.67...main).
+
+## Weryfikacja
+
+Na Linux x64 czysta instalacja uruchomiła n8n 2.49.7. Edytor zgłosił gotowość i nasłuchiwał na `127.0.0.1:5678`. Skrypt PowerShell przeszedł kontrolę składni. Testy uruchomieniowe na Windows, macOS i Linux ARM64 pozostają do wykonania.
