@@ -1,36 +1,38 @@
-# AutomateJoy — lokalny launcher n8n
+# AutomateJoy — Local n8n Launcher
 
-Ten fork AutomateJoy uruchamia n8n na komputerze użytkownika i udostępnia edytor pod [http://127.0.0.1:5678](http://127.0.0.1:5678). Zamiast instalatora z wbudowanym Electronem używa skryptów startowych i przeglądarki użytkownika. Pierwszy start pobiera oficjalny Node.js **24.22.3** oraz instaluje **n8n 2.49.7** z npm.
+[Polski](README.pl.md) · [Changes from AutomateJoy v1.0.67](DIFF.md)
 
-| System | Architektura | Start |
+This AutomateJoy fork runs n8n on your computer and serves the editor at [http://127.0.0.1:5678](http://127.0.0.1:5678). It replaces the Electron launcher with startup scripts and uses your default browser. On the first run, the launcher downloads **Node.js 24.22.3**, verifies the package checksum, and installs **n8n 2.49.7** from npm.
+
+| Operating system | Architecture | How to start |
 |---|---|---|
-| Windows 10/11 | x64 | `Start.cmd` |
-| macOS | Apple Silicon i Intel | `./start.sh` |
-| Linux z glibc | x64 i ARM64 | `./start.sh` |
+| Windows 10/11 | x64 | Double-click `Start.cmd` |
+| macOS | Apple Silicon and Intel | Run `sh ./start.sh` |
+| Linux with glibc | x64 and ARM64 | Run `sh ./start.sh` |
 
-## Pierwsze uruchomienie
+## First run
 
-1. Sklonuj repozytorium lub pobierz ZIP i go rozpakuj.
-2. Na Windows uruchom `Start.cmd`. Na macOS i Linux otwórz terminal w katalogu projektu i uruchom `sh ./start.sh`. Wymagane są dostęp do Internetu oraz standardowe narzędzia systemowe. Na macOS i Linux skrypt używa m.in. `curl`, `tar` i `sha256sum` lub `shasum`.
-3. Otwórz [edytor](http://127.0.0.1:5678) i utwórz konto właściciela. Na Windows launcher próbuje otworzyć przeglądarkę automatycznie po starcie n8n.
-4. Zatrzymaj n8n przez **Ctrl+C** przed wykonaniem kopii danych. Workflow działają tak długo, jak działa proces n8n.
+1. Clone this repository or download and extract its ZIP.
+2. Run the launcher for your operating system. The first run requires internet access. On macOS and Linux, the script uses standard system tools including `curl`, `tar`, and either `sha256sum` or `shasum`.
+3. Open the [local editor](http://127.0.0.1:5678) and create the owner account. On Windows, the launcher attempts to open the browser once n8n is ready.
+4. Press **Ctrl+C** in the launcher console or terminal to stop n8n. Workflows run while the n8n process is running.
 
-Na Windows obowiązuje lokalna polityka wykonywania skryptów PowerShell. Jeżeli pobrany ZIP oznaczył skrypt jako plik z Internetu, sprawdź źródło i odblokuj `Start.ps1` we właściwościach pliku, o ile pozwala na to polityka urządzenia.
+The Windows launcher follows your local PowerShell execution policy. If Windows marks `Start.ps1` as downloaded from the internet, verify its source before unblocking it in file properties, where your device policy permits.
 
-Do przygotowania runtime bez uruchamiania edytora użyj `powershell.exe -NoProfile -File .\Start.ps1 -SetupOnly` na Windows lub `sh ./start.sh --setup-only` na macOS i Linux. Windows obsługuje również `Start.ps1 -NoBrowser`.
+To install the runtime without starting the editor, use `powershell.exe -NoProfile -File .\Start.ps1 -SetupOnly` on Windows or `sh ./start.sh --setup-only` on macOS and Linux. To skip opening the browser on Windows, pass `-NoBrowser` to `Start.ps1`.
 
-## Dane i połączenia
+## Data and connectivity
 
-| System | Katalog profilu |
+| Operating system | Profile directory |
 |---|---|
 | Windows | `%LOCALAPPDATA%\n8n-local-windows\profile\.n8n` |
 | macOS | `~/Library/Application Support/AutomateJoy/profile/.n8n` |
-| Linux | `${XDG_DATA_HOME:-~/.local/share}/automatejoy/profile/.n8n` |
+| Linux | `automatejoy/profile/.n8n` under `$XDG_DATA_HOME`, which defaults to `~/.local/share` |
 
-Kopiuj cały katalog profilu, w tym bazę i konfigurację z kluczem szyfrowania. Launcher tworzy osobny profil. Dane z instalacji AutomateJoy v1.0.67 wymagają własnej procedury migracji.
+Stop n8n before backing up the entire profile, including its database and the configuration that contains the encryption key. The launcher creates a separate profile. Moving data from an existing AutomateJoy v1.0.67 installation requires a separate migration.
 
-Edytor nasłuchuje lokalnie. Launcher wyłącza diagnostykę n8n i sam nie wysyła telemetrii. Instalacja korzysta z Node.js i npm, a uruchamiane workflow mogą łączyć się z usługami, które skonfigurujesz.
+The editor listens on the loopback interface. The launcher disables n8n diagnostics and sends no telemetry of its own. Setup connects to Node.js and npm. Workflows can connect to the services you configure.
 
-## Pochodzenie i zmiany
+## Upstream and licensing
 
-[DIFF.md](DIFF.md) opisuje pochodzenie kodu, porównanie z AutomateJoy v1.0.67, ograniczenia i sposób sprawdzenia zakresu zmian. [Oryginalne wprowadzenie](https://github.com/newcl/AutomateJoy-Release/blob/v1.0.67/README.md) jest dostępne w tagu upstreamu. n8n podlega [własnej licencji](https://docs.n8n.io/sustainable-use-license/).
+See [DIFF.md](DIFF.md) for the comparison, scope, and Git diff. The [original README](https://github.com/newcl/AutomateJoy-Release/blob/v1.0.67/README.md) remains available at the upstream tag. See [LICENSE](LICENSE) for this repository and the [n8n license](https://docs.n8n.io/sustainable-use-license/) for n8n.
