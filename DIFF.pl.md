@@ -9,6 +9,17 @@
 - Publiczny tag zawiera `.gitignore`, `LICENSE` i `README.md`. Ustalenia o oryginalnej aplikacji pochodzą z analizy statycznej instalatora Windows x64, jego metadanych, `resources/app.asar` i manifestu paczki n8n.
 - Wersja po zmianach to samodzielna implementacja launchera na Windows, macOS i Linux. Poniżej znajduje się porównanie funkcji i zabezpieczeń. Utworzenie diffu kodu względem źródeł użytych do produkcyjnej kompilacji AutomateJoy wymagałoby dostępu do tych źródeł.
 
+## Zmiany wynikające z audytu
+
+| Ustalenie audytu | Zmiana w forku | Dowód lub ograniczenie |
+|---|---|---|
+| n8n 2.43.7 jest starsze od wersji z poprawką GHSA-w6f8-8qh4-h3j4. | Przypięto n8n 2.49.7. | [Komunikat n8n](https://github.com/n8n-io/n8n/security/advisories/GHSA-w6f8-8qh4-h3j4) wskazuje 2.49.2 jako pierwszą poprawioną wersję npm. |
+| Node.js 24.4.0 nie zawiera późniejszych poprawek bezpieczeństwa. | Przypięto Node.js 24.22.3. | [Informacja o wydaniu bezpieczeństwa Node.js](https://nodejs.org/en/blog/release/v24.22.3). |
+| Electron 27 utracił wsparcie, a renderer oryginału działa z wyłączoną piaskownicą. | Usunięto Electron. Edytor otwiera się w przeglądarce systemowej. | [Komunikat o końcu wsparcia Electron 27](https://releases.electronjs.org/release/v27.3.11). Aktualizacje przeglądarki są niezależne. |
+| Oryginalny launcher domyślnie włącza telemetrię. | Nowy launcher nie zawiera kodu telemetrii i wyłącza diagnostykę n8n. | Instalacja pobiera pakiety, a workflow mogą łączyć się ze skonfigurowanymi usługami. |
+| Oryginalny instalator i launcher Windows nie mają podpisu Authenticode. | Skrypty są dostępne w Git, a SHA-256 oficjalnego archiwum Node.js jest zapisane w kodzie. | Skrypty nie są podpisane. npm rozwiązuje zależności przechodnie przy instalacji. |
+| Oryginalny launcher wymaga dokładnej wersji n8n. W jego kodzie nie znaleziono aktywnego automatycznego aktualizatora. | Oba skrypty jawnie określają wersje składników. | Zmiany wersji wymagają ręcznej aktualizacji. |
+
 ## Różnice
 
 | Obszar | Oryginał v1.0.67 | Ten fork |
@@ -27,7 +38,7 @@
 - `Start.cmd` i `Start.ps1` obsługują Windows x64. `start.sh` obsługuje macOS i Linux na x64 oraz ARM64.
 - `DIFF.md` dokumentuje porównanie instalatora z nowym launcherem.
 
-Zmiany w plikach repozytorium można przejrzeć przez `git diff v1.0.67..main` lub w [porównaniu GitHub](https://github.com/grzechotnik777/AutomateJoy-Release/compare/v1.0.67...main).
+Zmiany w plikach repozytorium można przejrzeć przez `git diff v1.0.67..main` lub w [porównaniu GitHub](https://github.com/grzechotnik777/AutomateJoy/compare/v1.0.67...main).
 
 ## Weryfikacja
 

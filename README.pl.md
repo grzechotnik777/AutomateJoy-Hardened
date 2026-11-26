@@ -4,6 +4,15 @@
 
 Ten fork AutomateJoy uruchamia n8n na komputerze użytkownika i udostępnia edytor pod [http://127.0.0.1:5678](http://127.0.0.1:5678). Zamiast instalatora z wbudowanym Electronem używa skryptów startowych i przeglądarki użytkownika. Pierwszy start pobiera oficjalny Node.js **24.22.3** oraz instaluje **n8n 2.49.7** z npm.
 
+## Zmiany po audycie
+
+- **Nieaktualne n8n i Node.js.** Zaktualizowano n8n z 2.43.7 do 2.49.7 oraz Node.js z 24.4.0 do 24.22.3. Aktualizacja n8n obejmuje poprawkę [GHSA-w6f8-8qh4-h3j4](https://github.com/n8n-io/n8n/security/advisories/GHSA-w6f8-8qh4-h3j4).
+- **Niewspierany Electron i wyłączona piaskownica renderera.** Usunięto zależność od Electron. Edytor działa w przeglądarce systemowej.
+- **Domyślnie włączona telemetria launchera.** Nowy launcher nie zawiera kodu telemetrii. Edytor nadal nasłuchuje na `127.0.0.1`.
+- **Niepodpisany instalator Windows.** Fork uruchamia się ze skryptów i sprawdza SHA-256 pobranego archiwum Node.js względem wartości zapisanej w kodzie.
+
+[Ustalenia audytu, zmiany i weryfikacja](DIFF.pl.md#zmiany-wynikające-z-audytu)
+
 | System | Architektura | Start |
 |---|---|---|
 | Windows 10/11 | x64 | `Start.cmd` |

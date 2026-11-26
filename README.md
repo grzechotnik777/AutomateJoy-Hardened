@@ -4,6 +4,15 @@
 
 This AutomateJoy fork runs n8n on your computer and serves the editor at [http://127.0.0.1:5678](http://127.0.0.1:5678). It replaces the Electron launcher with startup scripts and uses your default browser. On the first run, the launcher downloads **Node.js 24.22.3**, verifies the package checksum, and installs **n8n 2.49.7** from npm.
 
+## Changes made after the audit
+
+- **Outdated n8n and Node.js.** Updated the bundled versions from n8n 2.43.7 and Node.js 24.4.0 to n8n 2.49.7 and Node.js 24.22.3. The n8n update includes the fix for [GHSA-w6f8-8qh4-h3j4](https://github.com/n8n-io/n8n/security/advisories/GHSA-w6f8-8qh4-h3j4).
+- **Unsupported Electron and disabled renderer sandbox.** Removed the Electron dependency. The editor opens in the system browser.
+- **Launcher telemetry enabled by default.** The new launcher has no telemetry code. The editor still binds to `127.0.0.1`.
+- **Unsigned Windows installer.** This fork runs from source scripts and verifies the downloaded Node.js archive against a pinned SHA-256.
+
+[Audit findings, changes and verification](DIFF.md#changes-traced-to-the-audit)
+
 | Operating system | Architecture | How to start |
 |---|---|---|
 | Windows 10/11 | x64 | Double-click `Start.cmd` |

@@ -12,6 +12,17 @@ Verified SHA-256 of the original installer
 
 `dfb436096a85e320ea68f495b885faa82e28abc54402831bd5613ba2825a62af`
 
+## Changes traced to the audit
+
+| Audit finding | Change in this fork | Evidence or remaining limitation |
+|---|---|---|
+| n8n 2.43.7 is below the fix threshold for GHSA-w6f8-8qh4-h3j4. | Pin n8n 2.49.7. | The [upstream advisory](https://github.com/n8n-io/n8n/security/advisories/GHSA-w6f8-8qh4-h3j4) gives 2.49.2 as the first fixed npm version. |
+| Node.js 24.4.0 predates subsequent security fixes. | Pin Node.js 24.22.3. | See the [Node.js security release notes](https://nodejs.org/en/blog/release/v24.22.3). |
+| Electron 27 is out of support; the original renderer runs with its sandbox disabled. | Remove Electron and use the system browser. | See the [Electron lifecycle notice](https://releases.electronjs.org/release/v27.3.11). Keep the browser updated separately. |
+| The original launcher enables telemetry on first run. | The new launcher has no telemetry implementation and disables n8n diagnostics. | Setup downloads packages, and workflows can contact their configured services. |
+| The original Windows installer and launcher lack Authenticode signatures. | Distribute readable scripts in Git and pin the SHA-256 of the official Node.js archive. | The scripts themselves have no code-signing signature. npm resolves transitive dependencies during setup. |
+| The launcher requires the exact bundled n8n version and no active automatic updater was found. | Keep runtime versions explicit in both launcher scripts. | Updating them is a manual maintenance task. |
+
 ## Functional differences
 
 | Area | Original Windows x64 installer | This fork |
@@ -28,7 +39,7 @@ Verified SHA-256 of the original installer
 
 `README.md` introduces the fork and explains setup and data storage. `Start.cmd` and `Start.ps1` handle Windows. `start.sh` handles macOS and Linux. The primary documentation is in English, with Polish editions linked at the top.
 
-Run `git diff v1.0.67..main` locally or open [Compare on GitHub](https://github.com/grzechotnik777/AutomateJoy-Release/compare/v1.0.67...main). That diff compares files in the public Git repository. The table above compares behavior against the shipped Windows installer.
+Run `git diff v1.0.67..main` locally or open [Compare on GitHub](https://github.com/grzechotnik777/AutomateJoy/compare/v1.0.67...main). That diff compares files in the public Git repository. The table above compares behavior against the shipped Windows installer.
 
 ## Verification
 
