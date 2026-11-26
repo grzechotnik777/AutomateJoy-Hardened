@@ -1,8 +1,8 @@
-# AutomateJoy — lokalny launcher n8n
+# AutomateJoy Hardened
 
 [English](README.md)
 
-Ten fork AutomateJoy uruchamia n8n na komputerze użytkownika i udostępnia edytor pod [http://127.0.0.1:5678](http://127.0.0.1:5678). Zamiast instalatora z wbudowanym Electronem używa skryptów startowych i przeglądarki użytkownika. Pierwszy start pobiera oficjalny Node.js **24.22.3** oraz instaluje **n8n 2.49.7** z npm.
+AutomateJoy Hardened uruchamia n8n na komputerze użytkownika i udostępnia edytor pod [http://127.0.0.1:5678](http://127.0.0.1:5678). Zamiast instalatora z wbudowanym Electronem używa skryptów startowych i przeglądarki użytkownika. Pierwszy start pobiera oficjalny Node.js **24.22.3** oraz instaluje **n8n 2.49.7** z npm.
 
 ## Zmiany po audycie
 

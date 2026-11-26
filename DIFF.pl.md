@@ -1,4 +1,4 @@
-# Zmiany względem AutomateJoy v1.0.67
+# AutomateJoy Hardened — zmiany względem v1.0.67
 
 [English](DIFF.md)
 
@@ -38,7 +38,7 @@
 - `Start.cmd` i `Start.ps1` obsługują Windows x64. `start.sh` obsługuje macOS i Linux na x64 oraz ARM64.
 - `DIFF.md` dokumentuje porównanie instalatora z nowym launcherem.
 
-Zmiany w plikach repozytorium można przejrzeć przez `git diff v1.0.67..main` lub w [porównaniu GitHub](https://github.com/grzechotnik777/AutomateJoy/compare/v1.0.67...main).
+Zmiany w plikach repozytorium można przejrzeć przez `git diff v1.0.67..main` lub w [porównaniu GitHub](https://github.com/grzechotnik777/AutomateJoy-Hardened/compare/v1.0.67...main).
 
 ## Weryfikacja
 

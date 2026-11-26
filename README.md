@@ -1,8 +1,8 @@
-# AutomateJoy — Local n8n Launcher
+# AutomateJoy Hardened
 
 [Polski](README.pl.md) · [Changes from AutomateJoy v1.0.67](DIFF.md)
 
-This AutomateJoy fork runs n8n on your computer and serves the editor at [http://127.0.0.1:5678](http://127.0.0.1:5678). It replaces the Electron launcher with startup scripts and uses your default browser. On the first run, the launcher downloads **Node.js 24.22.3**, verifies the package checksum, and installs **n8n 2.49.7** from npm.
+AutomateJoy Hardened runs n8n on your computer and serves the editor at [http://127.0.0.1:5678](http://127.0.0.1:5678). It replaces the Electron launcher with startup scripts and uses your default browser. On the first run, the launcher downloads **Node.js 24.22.3**, verifies the package checksum, and installs **n8n 2.49.7** from npm.
 
 ## Changes made after the audit
 

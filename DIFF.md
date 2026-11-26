@@ -1,4 +1,4 @@
-# Changes from AutomateJoy v1.0.67
+# AutomateJoy Hardened — changes from v1.0.67
 
 [Polski](DIFF.pl.md) · [Project README](README.md)
 
@@ -39,7 +39,7 @@ Verified SHA-256 of the original installer
 
 `README.md` introduces the fork and explains setup and data storage. `Start.cmd` and `Start.ps1` handle Windows. `start.sh` handles macOS and Linux. The primary documentation is in English, with Polish editions linked at the top.
 
-Run `git diff v1.0.67..main` locally or open [Compare on GitHub](https://github.com/grzechotnik777/AutomateJoy/compare/v1.0.67...main). That diff compares files in the public Git repository. The table above compares behavior against the shipped Windows installer.
+Run `git diff v1.0.67..main` locally or open [Compare on GitHub](https://github.com/grzechotnik777/AutomateJoy-Hardened/compare/v1.0.67...main). That diff compares files in the public Git repository. The table above compares behavior against the shipped Windows installer.
 
 ## Verification
 
